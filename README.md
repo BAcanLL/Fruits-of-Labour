@@ -59,7 +59,7 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 
 
 # Change Log
-*version 0.1* 2018-12-14
+2018-12-14 *version 0.1*
 ```
 + Basic movement
 + Dashing

@@ -30,9 +30,9 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 * Boss fights
 
 ## Credits
-**Design & Development** - Ben Liu
-**Graphic Design** - Ben Liu
-**Sound Effects** - zapsplat.com, freesounds.org
-**Sound Editing** - Ben Liu
-**Music** - soundimage.org
+* **Design & Development** - Ben Liu
+* **Graphic Design** - Ben Liu
+* **Sound Effects** - zapsplat.com, freesounds.org
+* **Sound Editing** - Ben Liu
+*  **Music** - soundimage.org
 

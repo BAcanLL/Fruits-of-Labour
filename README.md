@@ -58,7 +58,6 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 
 # Change Log
 *version 0.1*
----
 ```
 - Basic movement, dashing, shooting, collision detection, and damage
 - Enemy spawning and AI

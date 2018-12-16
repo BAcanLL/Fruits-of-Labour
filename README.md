@@ -64,6 +64,7 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 2018-12-15: *version 0.2*
 ```
 + Pausing functionality
++ Restart functionality
 + Pause menu options
 + Dynamic UI Scaling
 ```

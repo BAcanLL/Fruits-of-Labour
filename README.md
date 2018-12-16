@@ -63,13 +63,25 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 # Change Log
 2018-12-15: *version 0.2*
 ```
+Functionality:
 + Pausing functionality
 + Restart functionality
 + Pause menu options
-+ Dynamic UI Scaling
++ Rarity dependent item drop rate
++ Item type: Bubble
+- Invulnerability animation while spawning
+> UI scaling changed from Static -> Dynamic
+
+Gameplay:
++ Bubble: health
++ Modifier: Sickle
++ Modifier: Golden Sickle
+- Modifier: Health
+> Fertilizer health bonus lowered from 100 -> 20
 ```
 2018-12-14: *version 0.1*
 ```
+Functionaliy:
 + Basic movement
 + Dashing
 + Projectile system
@@ -79,10 +91,21 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 + State machine
 + Enemy AI
 + Item system
++ Item type: Weapon
++ Item type: Modifier
 + Item drops
 + Item rarities
 + Item pick up
 + Health bar
 + Energy bar
 + Inventory
+
+Gameplay:
++ Weapon: Shovel
++ Weapon: Shear
++ Weapon: Uzi
++ Weapin: Magnum
++ Modifier: Fertilizer
++ Modifier: Watering Can
++ Modifier: Health
 ```

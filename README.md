@@ -44,6 +44,11 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 * Multiple levels
 * Boss fights
 
+### Known bugs
+* Dashes will occasionally stops short - *Cause unkown.*
+* Standing against walls lets you double jump - *Known cause: state machines doesn't account for this case. Fix pending.*
+* Dying enemies sometimes fall through the floor - *Suspected cause: overlapping enemies wrongly applying forces.*
+
 ## Credits
 * **Design & Development** - Ben Liu
 * **Graphic Design** - Ben Liu

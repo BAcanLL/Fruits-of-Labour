@@ -35,12 +35,12 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 * Basic movement, dashing, shooting, collision detection, and damage
 * Enemy spawning and AI
 * Item system (enemies drop items, items can be picked up to apply effects, item drop rates based on rarity)
-* Simple UI elements (healthbar, energy, current weapon)
+* Simple UI elements (healthbar, energy, current weapon)\
+* Pause menu
 
 ### Planned features
 * Improved enemy spawning behaviour
 * Main menu
-* Pausing
 * Multiple levels
 * Boss fights
 

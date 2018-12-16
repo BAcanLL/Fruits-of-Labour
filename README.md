@@ -40,6 +40,7 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 ### Planned features
 * Improved enemy spawning behaviour
 * Main menu
+* Pausing
 * Multiple levels
 * Boss fights
 

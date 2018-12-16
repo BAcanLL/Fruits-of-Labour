@@ -4,4 +4,6 @@ Terrance, the tomato seeks to restore the lost glory of the tomato fruit. Help T
 ## Gameplay
 Fruits of Labour is a single-player, vegetable based shooter game. Explore the map and kill enemies while powering yourself up with the items they drop. 
 
-![Gameplay](Screenshots/Gameplay1.PNG) ![Gameplay](Screenshots/Gameplay2.PNG)
+![Gameplay](Screenshots/Gameplay3.PNG)
+
+

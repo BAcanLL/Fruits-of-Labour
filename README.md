@@ -14,19 +14,19 @@ Fruits of Labour is a single-player, vegetable based shooter game. Explore the m
 * Press E next to items to pick them up.
 
 ### Items
-Enemies have a change of dropping items when killed. The more powerful the item, the rarer it is.
+Enemies have a change of dropping items when killed. The more powerful the item, the rarer it is. Item despawn after a couple seconds, so pick them up quick!
 
+![Uzi](Screenshots/Uzi.PNG)
 ![Shovel](Screenshots/Shovel.PNG)
 ![Shears](Screenshots/Shears.PNG)
-![Uzi](Screenshots/Uzi.PNG)
 
-Weapons
+Weapons can be equiped to deal more damage, shoot faster, or change your attack patterns entirely. Only one weapon can be equipped at a time, so you must drop your current weapon to pick up a new one.
 
 ![Fertilizer](Screenshots/Fertilizer.PNG)
 ![Watering can](Screenshots/Watercan.PNG)
 ![Golden sickle](Screenshots/GoldSickle.PNG)
 
-Boons
+Boons stay with you the whole game. Picking up boons can increase your stats like health and speed or they can provide cool bonuses during gameplay.
 
 ## Development
 Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are created in Adobe Photoshop. Sound assets are edited with Audacity.

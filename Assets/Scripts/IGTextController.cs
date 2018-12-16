@@ -21,20 +21,23 @@ public class IGTextController : MonoBehaviour {
 	}
 	
 	void Update () {
-        // Move text
-        transform.Translate(movement);
+        if (!UIController.paused)
+        {
+            // Move text
+            transform.Translate(movement);
 
-        // Fade text
-        Color color = text.color;
-        color.a = (duration - timer.time) / duration;
-        text.color = color;
+            // Fade text
+            Color color = text.color;
+            color.a = (duration - timer.time) / duration;
+            text.color = color;
 
-        // Destroy text when time's up
-        if (timer.Done)
-            Destroy(gameObject);
+            // Destroy text when time's up
+            if (timer.Done)
+                Destroy(gameObject);
 
-        // Update timer
-        timer.Update();
+            // Update timer
+            timer.Update();
+        }
     }
 
     // Define new behaviour

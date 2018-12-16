@@ -103,154 +103,157 @@ public class MainCharController : CharController {
     }
 	
 	void Update () {
-        // State text for debugging
-        status.text = state.Name;
-
-        // Ensure weapon is never null
-        if (CurrentWeapon == null)
-            CurrentWeapon = DefaultWeapon;
-
-        // Update shooting sound
-        if (shootingSFX.name != CurrentWeapon.SfxName)
-            shootingSFX = (AudioClip)Resources.Load(CurrentWeapon.SfxName);
-
-        // Update graphics
-        UpdateHealthbar();
-        AnimInvulnerable();
-
-        // Update timers
-        bulletTimer.Update();
-        allowDashTimer.Update();
-        regenTimer.Update();
-
-        // Regenerate health every few seconds
-        if (regenTimer.Done && healthRegen > 0)
+        if (!UIController.paused)
         {
-            if (Health < BaseHealth)
+            // State text for debugging
+            status.text = state.Name;
+
+            // Ensure weapon is never null
+            if (CurrentWeapon == null)
+                CurrentWeapon = DefaultWeapon;
+
+            // Update shooting sound
+            if (shootingSFX.name != CurrentWeapon.SfxName)
+                shootingSFX = (AudioClip)Resources.Load(CurrentWeapon.SfxName);
+
+            // Update graphics
+            UpdateHealthbar();
+            AnimInvulnerable();
+
+            // Update timers
+            bulletTimer.Update();
+            allowDashTimer.Update();
+            regenTimer.Update();
+
+            // Regenerate health every few seconds
+            if (regenTimer.Done && healthRegen > 0)
             {
-                Heal(healthRegen);
-                GenerateFloatingText("+" + healthRegen.ToString(), GREEN);
+                if (Health < BaseHealth)
+                {
+                    Heal(healthRegen);
+                    GenerateFloatingText("+" + healthRegen.ToString(), GREEN, 12, 1);
+                }
+
+                regenTimer.Reset();
             }
 
-            regenTimer.Reset();
-        }
+            // Regenerate energy
+            if (Energy < BaseEnergy)
+                Energy += 0.2f;
+            // Can't exceed max energy
+            else if (Energy > BaseEnergy)
+                Energy = BaseEnergy;
 
-        // Regenerate energy
-        if (Energy < BaseEnergy)
-            Energy += 0.2f;
-        // Can't exceed max energy
-        else if (Energy > BaseEnergy)
-            Energy = BaseEnergy;
-
-        // Reset dash double tap window
-        if (allowDashTimer.Done)
-        {
-            allowDash = false;
-            allowDashTimer.Reset();
-        }
-
-        // If the current state allows for movement
-        if (state.AllowMovement)
-        {
-            // Double tap to dash left
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && state != JUMPING)
+            // Reset dash double tap window
+            if (allowDashTimer.Done)
             {
-                // If this is the second sucessive tap in the same direction
-                if (allowDash && GetDirection() == LEFT)
+                allowDash = false;
+                allowDashTimer.Reset();
+            }
+
+            // If the current state allows for movement
+            if (state.AllowMovement)
+            {
+                // Double tap to dash left
+                if (Input.GetKeyDown(KeyCode.LeftArrow) && state != JUMPING)
                 {
-                    // If not enough energy
-                    if (Energy < DASH_COST)
+                    // If this is the second sucessive tap in the same direction
+                    if (allowDash && GetDirection() == LEFT)
                     {
-                        audioSource[0].PlayOneShot(errorSFX, 0.1f);
+                        // If not enough energy
+                        if (Energy < DASH_COST)
+                        {
+                            audioSource[0].PlayOneShot(errorSFX, 0.1f);
+                        }
+                        // Dash if enough energy
+                        else
+                        {
+                            allowDash = false;
+                            Energy -= DASH_COST;
+                            Dash(LEFT);
+                        }
                     }
-                    // Dash if enough energy
+                    // Else register the first tap
                     else
                     {
-                        allowDash = false;
-                        Energy -= DASH_COST;
-                        Dash(LEFT);
+                        allowDash = true;
+                        allowDashTimer.Reset();
                     }
                 }
-                // Else register the first tap
-                else
+                // Double tap to dash right
+                else if (Input.GetKeyDown(KeyCode.RightArrow) && state != JUMPING)
                 {
-                    allowDash = true;
-                    allowDashTimer.Reset();
-                }
-            }
-            // Double tap to dash right
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && state != JUMPING)
-            {
-                // Dash if this is the second sucessive tap in the same direction
-                if (allowDash && GetDirection() == RIGHT)
-                {
-                    // If not enough energy
-                    if (Energy < DASH_COST)
+                    // Dash if this is the second sucessive tap in the same direction
+                    if (allowDash && GetDirection() == RIGHT)
                     {
-                        audioSource[0].PlayOneShot(errorSFX, 0.1f);
+                        // If not enough energy
+                        if (Energy < DASH_COST)
+                        {
+                            audioSource[0].PlayOneShot(errorSFX, 0.1f);
+                        }
+                        // Dash if enough energy
+                        else
+                        {
+                            allowDash = false;
+                            Energy -= DASH_COST;
+                            Dash(RIGHT);
+                        }
                     }
-                    // Dash if enough energy
+                    // Else register the first tap
                     else
                     {
-                        allowDash = false;
-                        Energy -= DASH_COST;
-                        Dash(RIGHT);
+                        allowDash = true;
+                        allowDashTimer.Reset();
                     }
                 }
-                // Else register the first tap
-                else
-                {
-                    allowDash = true;
-                    allowDashTimer.Reset();
-                }
-            }
 
-            // Walk left and right with arrow keys
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                Walk(LEFT * walkSpeed);
-                FaceLeft();
-            }
-            else if (Input.GetKey(KeyCode.RightArrow))
-            {
-                Walk(RIGHT * walkSpeed);
-                FaceRight();
-            }
-
-            // Fire bullet on Q with delays in between
-            if (Input.GetKey(KeyCode.Q) && bulletTimer.Done)
-            {
-                if (CurrentWeapon.RapidFire)
+                // Walk left and right with arrow keys
+                if (Input.GetKey(KeyCode.LeftArrow))
                 {
-                    RaycastBullet();
+                    Walk(LEFT * walkSpeed);
+                    FaceLeft();
                 }
-                else
+                else if (Input.GetKey(KeyCode.RightArrow))
                 {
-                    FireBullet();
+                    Walk(RIGHT * walkSpeed);
+                    FaceRight();
                 }
 
-                // Play sound
-                if(!audioSource[0].isPlaying)
-                    audioSource[0].PlayOneShot(shootingSFX, 0.5f);
+                // Fire bullet on Q with delays in between
+                if (Input.GetKey(KeyCode.Q) && bulletTimer.Done)
+                {
+                    if (CurrentWeapon.RapidFire)
+                    {
+                        RaycastBullet();
+                    }
+                    else
+                    {
+                        FireBullet();
+                    }
 
-                bulletTimer.Reset();
+                    // Play sound
+                    if (!audioSource[0].isPlaying)
+                        audioSource[0].PlayOneShot(shootingSFX, 0.5f);
+
+                    bulletTimer.Reset();
+                }
+
+                // Jump when space is pressed
+                if (Input.GetKeyDown(KeyCode.Space) && state != JUMPING && state.AllowMovement)
+                    DoJump();
             }
 
-            // Jump when space is pressed
-            if (Input.GetKeyDown(KeyCode.Space) && state != JUMPING && state.AllowMovement)
-                DoJump();
+            // Pick up the first touching item
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (touchingItems.Count > 0)
+                    PickUpItem(touchingItems[0]);
+            }
+
+            // Gameplay checks
+            CheckIfOOB();
+            CheckIfDead();
         }
-
-        // Pick up the first touching item
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (touchingItems.Count > 0)
-                PickUpItem(touchingItems[0]);
-        }
-
-        // Gameplay checks
-        CheckIfOOB();
-        CheckIfDead();
 	}
 
     // Collision behaviour
@@ -352,14 +355,18 @@ public class MainCharController : CharController {
     // Dash forward, ignoring all projectiles and enemies
     private void Dash(Vector2 direction)
     {
+        // Set state and behaviour
         state = DASHING;
+        rigidBody.gravityScale = 0;
         Physics2D.IgnoreLayerCollision(PLAYER_LAYER, ENEMY_LAYER);
         rigidBody.AddForce(DASH_MAGNITUDE * direction, ForceMode2D.Impulse);
 
+        // Change transparency
         Color color = defaultColor;
         color.a = 0.75f;
         GetComponent<SpriteRenderer>().color = color;
 
+        // End dash coroutine
         StartCoroutine(EndDash());
     }
 
@@ -368,6 +375,7 @@ public class MainCharController : CharController {
     {
         yield return new WaitForSeconds(0.5f);
 
+        rigidBody.gravityScale = 1;
         Physics2D.IgnoreLayerCollision(PLAYER_LAYER, ENEMY_LAYER, false);
         rigidBody.velocity = Vector2.zero;
         GetComponent<SpriteRenderer>().color = defaultColor;

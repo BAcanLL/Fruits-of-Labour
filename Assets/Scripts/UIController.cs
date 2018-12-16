@@ -14,26 +14,54 @@ public class UIController : MonoBehaviour {
     public Text healthText;
     private Vector2 healthbarSize, healthbarPos, energybarSize;
     private Color energybarColor;
-    
 
+    // Pause variables
+    public static bool paused = false;
+    public GameObject pauseMenu;
+    public Button resumeButton;
+
+    // Player
     private MainCharController player;
 
 	// Use this for initialization
 	void Start () {
-        // Initialize references
+        // Initialize sprite references
         sprite = inventory.GetComponent<Image>();
+        sprite.color = Color.clear;
+
+        // Initialize player reference
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharController>();
+
+        // Initialize healthbar
         healthbarSize = healthbar.GetComponent<RectTransform>().sizeDelta;
         healthbarPos = healthbar.GetComponent<RectTransform>().localPosition;
         energybarSize = energybar.GetComponent<RectTransform>().sizeDelta;
         energybarColor = energybar.GetComponent<Image>().color;
 
-        // Hide image on start
-        sprite.color = Color.clear;
+        // Initialize buttons
+        resumeButton.onClick.AddListener(ResumeBtnPress);
+
+        // Set up pausing
+        pauseMenu.SetActive(false);
+
     }
 	
 	// Update is called once per frame
 	void Update () {
+
+        // Pause the game with Esc
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!paused)
+            {
+                Pause(true);
+            }
+            else
+            {
+                Pause(false);
+            }
+
+        }
 
         // Updaye HP bar
         float percentHP = player.Health / player.BaseHealth;
@@ -56,8 +84,6 @@ public class UIController : MonoBehaviour {
         else
             energybar.GetComponent<Image>().color = energybarColor;
 
-        Debug.Log(energybarSize.y);
-
         // Update weapon icon
         if (player.CurrentWeapon == player.DefaultWeapon)
         {
@@ -69,4 +95,25 @@ public class UIController : MonoBehaviour {
             sprite.color = Color.white;
         }
 	}
+
+    //----------------
+    // Button methods
+    //----------------
+
+    void ResumeBtnPress()
+    {
+        if (paused)
+            Pause(false);
+    }
+
+    //---------------
+    // Other methods
+    //---------------
+
+    private void Pause(bool pause)
+    {
+        Time.timeScale = pause ? 0 : 1;
+        paused = pause;
+        pauseMenu.SetActive(pause);
+    }
 }

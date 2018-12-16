@@ -52,45 +52,48 @@ public class EnemyController : CharController {
 	// Update is called once per frame
 	void Update () {
 
-        // Update timers
-        jumpTimer.Update();
-        movementTimer.Update();
-
-        // Update graphics
-        UpdateHealthbar();
-
-        // Get movement
-        if (state.AllowMovement)
+        if (!UIController.paused)
         {
-            // Follow the player within a certain distance
-            if (Distance2Player() < followDistance)
+            // Update timers
+            jumpTimer.Update();
+            movementTimer.Update();
+
+            // Update graphics
+            UpdateHealthbar();
+
+            // Get movement
+            if (state.AllowMovement)
             {
-                Move(DirToPlayer());
-                movementTimer.Reset();
-            }
-            // Move in a preset direction
-            else
-            {
-                Move(currentDirection);
-                
-                // Randomize the preset direction every once in a while
-                if(movementTimer.Done)
+                // Follow the player within a certain distance
+                if (Distance2Player() < followDistance)
                 {
+                    Move(DirToPlayer());
                     movementTimer.Reset();
-                    currentDirection = RandomDirection();
+                }
+                // Move in a preset direction
+                else
+                {
+                    Move(currentDirection);
+
+                    // Randomize the preset direction every once in a while
+                    if (movementTimer.Done)
+                    {
+                        movementTimer.Reset();
+                        currentDirection = RandomDirection();
+                    }
+                }
+
+                if (jumpTimer.Done)
+                {
+                    AutoJump();
+                    jumpTimer.Reset();
                 }
             }
 
-            if(jumpTimer.Done)
-            {
-                AutoJump();
-                jumpTimer.Reset();
-            }
+            // Gameplay checks
+            CheckIfOOB();
+            CheckIfDead();
         }
-
-        // Gameplay checks
-        CheckIfOOB();
-        CheckIfDead();
     }
 
     private void OnCollisionStay2D(Collision2D collision)

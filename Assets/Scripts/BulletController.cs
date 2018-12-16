@@ -21,19 +21,22 @@ public class BulletController : MonoBehaviour {
 	}
 	
 	void Update () {
-        // Destroy after exceeding lifetime
-        if (timer.Done)
-            Destroy(gameObject);
+        if (!UIController.paused)
+        {
+            // Destroy after exceeding lifetime
+            if (timer.Done)
+                Destroy(gameObject);
 
-        // Increment timer
-        timer.Update();
+            // Increment timer
+            timer.Update();
 
-        // Set sprite orientation
-        if (Direction.x < 0)
-            GetComponentInChildren<SpriteRenderer>().flipY = true; // flipY instead of flipX due to 90 deg rotation
+            // Set sprite orientation
+            if (Direction.x < 0)
+                GetComponentInChildren<SpriteRenderer>().flipY = true; // flipY instead of flipX due to 90 deg rotation
 
-        // Move bullet
-        transform.Translate(Direction * speed);
+            // Move bullet
+            transform.Translate(Direction * speed);
+        }
 	}
 
     // Destroy bullets on terrain

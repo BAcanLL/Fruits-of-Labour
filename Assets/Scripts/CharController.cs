@@ -30,7 +30,7 @@ public abstract class CharController : MonoBehaviour
                     TAKING_DMG = new State("taking_dmg", false, true);
 
     // Current state
-    protected State state = null;
+    protected State state = null, saveState = null;
 
     // Gameplay variables
     public float Health { get; protected set; }

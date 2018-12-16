@@ -220,38 +220,41 @@ public class ItemController : MonoBehaviour{
 
     void Update()
     {
-        // Bubble item special case
-        if (item is Bubble)
+        if (!UIController.paused)
         {
-            BubbleBehaviour();
-        }
-        // Other items
-        else
-        {
-            // Show text after 1 second
-            if (text != null && timer.time > 1)
+            // Bubble item special case
+            if (item is Bubble)
             {
-                text.enabled = showTxt;
+                BubbleBehaviour();
+            }
+            // Other items
+            else
+            {
+                // Show text after 1 second
+                if (text != null && timer.time > 1)
+                {
+                    text.enabled = showTxt;
 
-                // Semi-transparent when player is not close
-                Color color = GetComponent<SpriteRenderer>().color;
-                if (showTxt)
-                    color.a = 1f;
-                else
-                    color.a = 0.5f;
-                GetComponent<SpriteRenderer>().color = color;
+                    // Semi-transparent when player is not close
+                    Color color = GetComponent<SpriteRenderer>().color;
+                    if (showTxt)
+                        color.a = 1f;
+                    else
+                        color.a = 0.5f;
+                    GetComponent<SpriteRenderer>().color = color;
+                }
+
+                // Show (non-heal) item text if player is close
+                showTxt = Distance2Player() < 1.5;
             }
 
-            // Show (non-heal) item text if player is close
-            showTxt = Distance2Player() < 1.5;
+            // Despawn after a delay
+            if (timer.Done)
+                Destroy(gameObject);
+
+            // Update timer
+            timer.Update();
         }
-
-        // Despawn after a delay
-        if (timer.Done)
-            Destroy(gameObject);
-
-        // Update timer
-        timer.Update();
     }
 
     //-------------------

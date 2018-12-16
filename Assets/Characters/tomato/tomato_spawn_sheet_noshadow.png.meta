@@ -1,0 +1,603 @@
+fileFormatVersion: 2
+guid: cb98483a30a4f964ba00aab9f6242af2
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: tomato_spawn_sheet_noshadow_0
+    21300002: tomato_spawn_sheet_noshadow_1
+    21300004: tomato_spawn_sheet_noshadow_2
+    21300006: tomato_spawn_sheet_noshadow_3
+    21300008: tomato_spawn_sheet_noshadow_4
+    21300010: tomato_spawn_sheet_noshadow_5
+    21300012: tomato_spawn_sheet_noshadow_6
+    21300014: tomato_spawn_sheet_noshadow_7
+    21300016: tomato_spawn_sheet_noshadow_8
+    21300018: tomato_spawn_sheet_noshadow_9
+    21300020: tomato_spawn_sheet_noshadow_10
+    21300022: tomato_spawn_sheet_noshadow_11
+    21300024: tomato_spawn_sheet_noshadow_12
+    21300026: tomato_spawn_sheet_noshadow_13
+    21300028: tomato_spawn_sheet_noshadow_14
+    21300030: tomato_spawn_sheet_noshadow_15
+    21300032: tomato_spawn_sheet_noshadow_16
+    21300034: tomato_spawn_sheet_noshadow_17
+    21300036: tomato_spawn_sheet_noshadow_18
+    21300038: tomato_spawn_sheet_noshadow_19
+    21300040: tomato_spawn_sheet_noshadow_20
+    21300042: tomato_spawn_sheet_noshadow_21
+    21300044: tomato_spawn_sheet_noshadow_22
+    21300046: tomato_spawn_sheet_noshadow_23
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_0
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c753a37ae86b2614bbfca428310e3192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eceb776cb01a00c4facfafb8cecce062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b009008be7a88c4589f7213fa2973a3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e77593e8f811e448873afa172a2fb3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35788501272606249b38c80901b351fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_5
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 061066bd32481ab44883be4856e5ffbe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_6
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f394be7139f69e4ab8c87a155be1a2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8edd06dfb21598e409939a3e75c36908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_8
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5874c36095680e946a1167a09d07196c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8f07be23f7467845bb193de4f025de2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_10
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a600f0c0cac19c544a38f953c1693c2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea9ae714ae296bb4d9ded94027cc7d57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_12
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f92bf066216c1549add00e06cd893ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_13
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb20aed3a2a5dac47ba6f384757a45d6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b094fd336193024bbbd6e7b8144b76d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049e1ddba3fb491409eba74f7120a825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_16
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47368adbdf7ded447bac29594ba78638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_17
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a98f2ec0f56fa44a58ae07fb5b7cd3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_18
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41fba8ea6a280cd4790a1e8fd2165380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_19
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f57400d9e46b04bbaab364dfdec4bf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_20
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a858548507eeca94ab513b5940180540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_21
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1742435d3a34c5e438f0d5533f61c704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_22
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bd8273bd34524e47a5c6b43975e2f23
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tomato_spawn_sheet_noshadow_23
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 3
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5090a11ec3baf3740a5acd3fb859b8dc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: e870851b623af7b42972ac284c2c8615
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

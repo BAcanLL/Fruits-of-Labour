@@ -9,11 +9,11 @@ Fruits of Labour is a single-player, vegetable based shooter game. Explore the m
 ![Gameplay](Screenshots/Gameplay3.PNG)
 
 ### Controls
-* Press the Left and Right arrow keys to move.
-* Press Space to jump.
-* Double tap the arrow key in a direction to do a short dash.
-* Press Q to shoot.
-* Press E next to items to pick them up.
+* Press the **Left** and **Right** arrow keys to move.
+* Press **Space** to jump.
+* **Double tap** the arrow key in a direction to do a short dash.
+* Press **Q** to shoot.
+* Press **E** next to items to pick them up.
 
 ### Items
 Enemies have a change of dropping items when killed. The more powerful the item, the rarer it is. Item despawn after a couple seconds, so pick them up quick!

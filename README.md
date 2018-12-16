@@ -28,7 +28,7 @@ Enemies have a change of dropping items when killed. The more powerful the item,
 ![Watering can](Screenshots/Watercan.PNG)
 ![Golden sickle](Screenshots/GoldSickle.PNG)
 
-**Boons** stay with you the whole game. Picking up boons can increase your stats like health and speed or they can provide cool bonuses during gameplay.
+**Modifier** stay with you the whole game. Picking up boons can increase your stats like health and speed or they can provide cool bonuses during gameplay.
 
 ## Development
 Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are created in Adobe Photoshop. Sound assets are edited with Audacity.

@@ -16,9 +16,6 @@ Fruits of Labour is a single-player, vegetable based shooter game. Explore the m
 ### Items
 Enemies have a change of dropping items when killed. The more powerful the item, the rarer it is.
 
-![Shovel](Assets/Other graphics/Resources/Shovel_sprite.png)
-![Shears](Assets/Other graphics/Resources/Clippers_sprite.png)
-![Uzi](Assets/Other graphics/Resources/Uzi_sprite.png)
 
 ## Development
 Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are created in Adobe Photoshop. Sound assets are edited with Audacity.

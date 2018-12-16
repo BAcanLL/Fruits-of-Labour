@@ -77,7 +77,8 @@ Gameplay:
 + Modifier: Sickle
 + Modifier: Golden Sickle
 - Modifier: Health
-> Increased post spawning invulnerability from 0.5s -> 1.5s
+> Fertilizer health bonus decreased from +100 HP -> +20 HP
+> Post spawning invulnerability increased from 0.5s -> 1.5s
 ```
 2018-12-14: *version 0.1*
 ```

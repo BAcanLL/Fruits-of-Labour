@@ -7,6 +7,7 @@
 Fruits of Labour is a single-player, vegetable based shooter game. Explore the map and kill enemies while powering yourself up with cool new items. 
 
 ![Gameplay](Screenshots/Gameplay3.PNG)
+![Gameplay](Screenshots/Gameplay4.PNG)
 
 ### Controls
 * Press the **Left** and **Right** arrow keys to move.

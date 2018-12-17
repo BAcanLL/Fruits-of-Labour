@@ -20,7 +20,6 @@ public class EnemyController : CharController {
     private SpawnerController spawner;
 
     // Behaviour variables
-    private GameObject player;
     private float rayKnockBack = 75,
                   followDistance = 15;
     private Timer jumpTimer, movementTimer;
@@ -36,9 +35,6 @@ public class EnemyController : CharController {
         // Initialize timers
         jumpTimer = new Timer(1);
         movementTimer = new Timer(5);
-
-        // Initialize reference to player
-        player = GameObject.FindGameObjectWithTag("Player");
 
         // Initialize character
         InitChar(BASE_HEALTH, WALK_SPEED, JUMP_FORCE);

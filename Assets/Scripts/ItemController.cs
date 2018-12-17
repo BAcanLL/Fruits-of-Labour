@@ -111,7 +111,7 @@ public static class Items
     public static Bubble Heal = new Bubble("Heal", "Greenorb-2_sprite", Item.Rarity.Common, Bubble.BubbleType.Health, 1);
 
     // Lists of dropable Items
-    public static List<Item> CommonDrops = new List<Item>() { Shovel, Shears, Waterdrop };
+    public static List<Item> CommonDrops = new List<Item>() { Shovel, Shears };
     public static List<Item> UncommonDrops = new List<Item>() { Fertilizer, WateringCan, Sickle };
     public static List<Item> RareDrops = new List<Item>() { Magnum, Uzi, GoldenSickle };
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour {
 
@@ -18,7 +19,7 @@ public class UIController : MonoBehaviour {
     // Pause variables
     public static bool paused = false;
     public GameObject pauseMenu;
-    public Button resumeButton;
+    public Button resumeBtn, settingsBtn, restartBtn;
 
     // Player
     private MainCharController player;
@@ -39,7 +40,8 @@ public class UIController : MonoBehaviour {
         energybarColor = energybar.GetComponent<Image>().color;
 
         // Initialize buttons
-        resumeButton.onClick.AddListener(ResumeBtnPress);
+        resumeBtn.onClick.AddListener(ResumeBtnPress);
+        restartBtn.onClick.AddListener(RestartBtnPress);
 
         // Set up pausing
         pauseMenu.SetActive(false);
@@ -102,8 +104,14 @@ public class UIController : MonoBehaviour {
 
     void ResumeBtnPress()
     {
-        if (paused)
-            Pause(false);
+        Pause(false);
+    }
+
+    void RestartBtnPress()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        Pause(false);
     }
 
     //---------------

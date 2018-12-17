@@ -41,6 +41,7 @@ public abstract class CharController : MonoBehaviour
     protected GameObject healthPrefab;
     protected GameObject healthbar;
     protected SpriteRenderer currentHealthbar;
+    protected GameObject player;
 
     // Animation variables
     public Color GREEN = new Color(0,0.7f,0.1f,1);
@@ -75,6 +76,7 @@ public abstract class CharController : MonoBehaviour
         anim = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         dmgTxtPrefab = Resources.Load("DamageText");
+        player = GameObject.FindGameObjectWithTag("Player");
         healthPrefab = (GameObject)Resources.Load("Healthbar");
 
         // Initialize healthbar

@@ -13,7 +13,7 @@ public class MainCharController : CharController {
     private const float SPAWN_DELAY = 0.5f,
                         WALK_SPEED = 0.25f,
                         JUMP_FORCE = 350f,
-                        INVULNERABLE_DELAY = 0.5f;
+                        INVULNERABLE_DELAY = 0.75f;
 
     // Projectile variables
     public GameObject bulletPrefab;
@@ -118,7 +118,8 @@ public class MainCharController : CharController {
 
             // Update graphics
             UpdateHealthbar();
-            AnimInvulnerable();
+            if(state != SPAWNING)
+                AnimInvulnerable();
 
             // Update timers
             bulletTimer.Update();
@@ -344,7 +345,7 @@ public class MainCharController : CharController {
         PlayIdleAnimation();
 
         // Wait to disable invulnerability
-        yield return new WaitForSeconds(INVULNERABLE_DELAY);
+        yield return new WaitForSeconds(1.5f);
         Invulnerable(false);
     }
 
@@ -422,6 +423,7 @@ public class MainCharController : CharController {
     {
         StopAllCoroutines();
         Spawn();
+        bulletTimer.Set(DefaultWeapon.AtkDelay);
         transform.position = startPos;
         Health = BASE_HEALTH;
     }

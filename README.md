@@ -1,7 +1,7 @@
 # Fruits of Labour
 (*currently in development: v0.2*)
 
-*Terrance, the tomato seeks to restore the lost glory of the tomato fruit. Help Terrance blast through hordes of angry vegetables using shovels, shears, and even revolvers on his way to prove once and for all that a tomato is a in fact fruit.*
+*Terrance, the tomato seeks to restore the lost glory of the tomato fruit. Help Terrance blast through hordes of angry vegetables using shovels, shears, and even revolvers on his way to prove once and for all that a tomato is in fact a fruit.*
 
 ## Gameplay
 Fruits of Labour is a single-player, vegetable based shooter game. Explore the map and kill enemies while powering yourself up with cool new items. 
@@ -72,7 +72,7 @@ Functionality:
 - Invulnerability animation while spawning
 > UI scaling changed from Static -> Dynamic
 
-Gameplay:
+Content:
 + Bubble: Health
 + Modifier: Sickle
 + Modifier: Golden Sickle
@@ -100,7 +100,7 @@ Functionaliy:
 + Energy bar
 + Inventory
 
-Gameplay:
+Content:
 + Weapon: Shovel
 + Weapon: Shear
 + Weapon: Uzi

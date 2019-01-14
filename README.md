@@ -33,7 +33,11 @@ Enemies have a change of dropping items when killed. The more powerful the item,
 **Modifiers** stay with you the whole game. Picking them up can increase stats like health and speed or provide cool bonuses during gameplay.
 
 ### Soil
+New enemies sprout from patches of soil marked with a **Sign**. Interacting with soil will stomp it out, meaning enemies will no longer sprout there.
+
 ![Sign](Screenshots/Sign.PNG)
+
+Each patch of soil can only sustain a couple of nemies at a time. Once this number is reached, no new enemies will appear until one has been killed. 
 
 ## Development
 Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are created in Adobe Photoshop. Sound assets are edited with Audacity.

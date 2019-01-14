@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour {
     private static float DEFAULT_TIME = 2;
     private float speed, lifetime;
     public float Strength { get; private set; }
+    public bool Flip { get; private set; }
     public Vector2 Direction { get; private set; }
     private Timer timer = new Timer(DEFAULT_TIME);
 
@@ -31,7 +32,7 @@ public class BulletController : MonoBehaviour {
             timer.Update();
 
             // Set sprite orientation
-            if (Direction.x < 0)
+            if (Direction.x < 0 && Flip)
                 GetComponentInChildren<SpriteRenderer>().flipY = true; // flipY instead of flipX due to 90 deg rotation
 
             // Move bullet
@@ -53,6 +54,17 @@ public class BulletController : MonoBehaviour {
         this.speed = speed;
         this.lifetime = lifetime;
         timer.Set(lifetime);
+        Flip = true;
+    }
+
+    public void SetProperties(float strength, Vector2 direction, float speed, float lifetime, bool flip)
+    {
+        Strength = strength;
+        this.Direction = direction;
+        this.speed = speed;
+        this.lifetime = lifetime;
+        timer.Set(lifetime);
+        Flip = flip;
     }
 }
 

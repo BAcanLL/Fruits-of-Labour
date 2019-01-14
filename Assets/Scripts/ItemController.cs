@@ -105,7 +105,7 @@ public static class Items
     public static Modifier Fertilizer = new Modifier("Fertilizer", "Fertilizer_sprite", "More health", Item.Rarity.Uncommon, Modifier.ModType.HealthBonus, 20);
     public static Modifier WateringCan = new Modifier("Watering can", "Watercan_sprite", "Regenerate health", Item.Rarity.Uncommon, Modifier.ModType.HealthRegen, 2);
     public static Modifier Sickle = new Modifier("Sickle", "Sickle_sprite", "Reap health from fallen enemies", Item.Rarity.Uncommon, Modifier.ModType.Lifesteal, 1);
-    public static Modifier GoldenSickle = new Modifier("Golden Sickle", "Goldensickle_sprite", "Reap health from fallen enemies", Item.Rarity.Rare, Modifier.ModType.Lifesteal, 3);
+    public static Modifier GoldenSickle = new Modifier("Golden Sickle", "Goldensickle_sprite", "Reap health from fallen enemies", Item.Rarity.Rare, Modifier.ModType.Lifesteal, 5);
 
     // Bubbles
     public static Bubble Heal = new Bubble("Heal", "Greenorb-2_sprite", Item.Rarity.Common, Bubble.BubbleType.Health, 1);

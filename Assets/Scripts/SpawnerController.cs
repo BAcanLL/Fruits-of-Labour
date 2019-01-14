@@ -9,6 +9,7 @@ public class SpawnerController : MonoBehaviour {
     public GameObject egg; // The object to be instantiated
     public float delay;
     public int maxInstances;
+    public bool isBoss;
     private float strength, baseHealth, walkSpeed;
     private List<GameObject> list = new List<GameObject>();
     private Vector3 pos = new Vector3();
@@ -16,6 +17,8 @@ public class SpawnerController : MonoBehaviour {
 
     // Gameplay variables
     private Text text;
+    public const float MAX_POINTS = 2;
+    public static float Points { get; private set; }
 
     // Player reference
     private GameObject player;
@@ -25,6 +28,18 @@ public class SpawnerController : MonoBehaviour {
         // Initialize references
         player = GameObject.FindGameObjectWithTag("Player");
         text = GetComponentInChildren<Text>();
+        if (isBoss)
+        {
+            text.text = "Press <W> to inspect vines.";
+        }
+        else
+        {
+            // Intialize instance stats
+            CharacterStats stats = egg.GetComponent<CharacterStats>();
+            strength = stats.strength;
+            baseHealth = stats.baseHealth;
+            walkSpeed = stats.walkSpeed;
+        }
 
         // Hide the spawner
         GetComponent<SpriteRenderer>().enabled = false;
@@ -35,12 +50,6 @@ public class SpawnerController : MonoBehaviour {
         // Set starting position
         pos = transform.position;
 
-        // Intialize instance stats
-        CharacterStats stats = egg.GetComponent<CharacterStats>();
-        strength = stats.strength;
-        baseHealth = stats.baseHealth;
-        walkSpeed = stats.walkSpeed;
-
         // Initialize text
         text.enabled = false;
 	}
@@ -48,14 +57,20 @@ public class SpawnerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        // If timer's up
-        if(timer.Done)
+        if (isBoss)
         {
+            // Boss spawner behaviour
+        }
+        else
+        {
+            // If timer's up
+            if (timer.Done)
+            {
             // Refresh the list of instances to delete all null references
             foreach (GameObject instance in list)
                 if (instance == null)
                     list.Remove(instance);
-            
+
             // If there's room for more instances
             if (list.Count < maxInstances)
             {
@@ -65,6 +80,7 @@ public class SpawnerController : MonoBehaviour {
 
             // Reset timer
             timer.Reset();
+            }
         }
 
         // Update timer
@@ -89,10 +105,19 @@ public class SpawnerController : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
+        if (isBoss)
+        {
+            if (Points >= MAX_POINTS && Input.GetKey(KeyCode.W))
+            {
+                Instantiate(egg, pos + new Vector3(0, 2, 0), transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+        else if (collision.gameObject == player)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
+                Points++;
                 Destroy(gameObject);
             }
         }

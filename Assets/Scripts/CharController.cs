@@ -266,6 +266,7 @@ public abstract class CharController : MonoBehaviour
 
                 // Do bounce
                 transform.Translate(new Vector3(0, 0.01f, 0)); // Slight translation to avoid OnCollisionStay
+                rigidBody.velocity = Vector2.zero;
                 rigidBody.AddForce(bounceForce);
 
                 // Damaged behaviour
@@ -359,7 +360,7 @@ public abstract class CharController : MonoBehaviour
     // Delay to destroy gameobject
     protected virtual IEnumerator Dying()
     {
-        Debug.Log(dead);
+        //Debug.Log(dead);
         yield return new WaitForSeconds(deathFade);
 
         dead = true;      

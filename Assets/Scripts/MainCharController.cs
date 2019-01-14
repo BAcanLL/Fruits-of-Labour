@@ -270,6 +270,23 @@ public class MainCharController : CharController {
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject obj = collision.gameObject;
+        //Debug.Log(collision.gameObject);
+
+        // Bullet behaviour
+        if (obj.CompareTag("Enemy Projectile"))
+        {
+            // Destroy and take damage from bullets
+            if (CollideAndDmg(collision, obj.GetComponent<BulletController>().Strength))
+                Destroy(obj);
+            // Do not collide if damage wasn't taken
+            else
+                Physics2D.IgnoreCollision(GetComponent<Collider2D>(), collision.collider);
+        }
+    }
+
     // Add all contacted colliders to list
     private void OnTriggerEnter2D(Collider2D collider)
     {

@@ -32,6 +32,9 @@ Enemies have a change of dropping items when killed. The more powerful the item,
 
 **Modifiers** stay with you the whole game. Picking them up can increase stats like health and speed or provide cool bonuses during gameplay.
 
+### Soil
+![Sign](Screenshots/Sign.PNG)
+
 ## Development
 Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are created in Adobe Photoshop. Sound assets are edited with Audacity.
 

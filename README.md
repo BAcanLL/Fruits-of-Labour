@@ -15,6 +15,7 @@ Fruits of Labour is a single-player, vegetable based shooter game. Explore the m
 * **Double tap** the arrow key in a direction to do a short dash.
 * Press **Q** to shoot.
 * Press **E** next to items to pick them up.
+* Press **W** to interact with terrain.
 
 ### Items
 Enemies have a change of dropping items when killed. The more powerful the item, the rarer it is. Item despawn after a couple seconds, so pick them up quick!
@@ -38,14 +39,13 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 * Basic movement, dashing, shooting, collision detection, and damage
 * Enemy spawning and AI
 * Item system (enemies drop items, items can be picked up to apply effects, item drop rates based on rarity)
-* Simple UI elements (healthbar, energy, current weapon)\
+* Minimalistic UI (healthbar, energy, current weapon)\
 * Pause functionality
+* Boss fight
 
 ### Planned features
 * Improved enemy spawning behaviour
-* Main menu
 * Multiple levels
-* Boss fights
 
 ### Known bugs
 * Dashes will occasionally stops short - *Cause unknown.*
@@ -62,6 +62,23 @@ Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are 
 
 
 # Change Log
+
+2019-01-14: *version 0.3*
+```
+Functionality:
++ Spawners can be deactivated
++ Spawners can have prerequisites
++ Boss fight
++ Enemy projectiles
++ Title screen
+
+Content:
++ Terrain: Signs
++ Terrain: Fences
++ Terrain: Vines
++ Enemy: Pumpkin Boss
+```
+
 2018-12-15: *version 0.2*
 ```
 Functionality:
@@ -109,4 +126,7 @@ Content:
 + Modifier: Fertilizer
 + Modifier: Watering Can
 + Modifier: Health
++ Terrain: Ground tiles
++ Enemy: Broccoli
++ Enemy: Red Pepper
 ```

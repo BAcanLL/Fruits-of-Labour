@@ -39,7 +39,7 @@ New enemies sprout from patches of soil marked with a **Sign**. Interacting with
 
 Each patch of soil can only sustain a couple of nemies at a time. Once this number is reached, no new enemies will appear until one has been killed. 
 
-Once every patch of soil has been stomped out, the boss for the level can be summoned. To summon the boss, explore the map until you find it's terrain markers. Interacting with these markers will cause the boss to appear. In order to complete the level, the boss must be summoned and defeated.
+Once every patch of soil has been stomped out, the **Boss** for the level can be summoned. To summon the boss, explore the map until you find it's terrain markers. Interacting with these markers will cause the boss to appear. In order to complete the level, the boss must be summoned and defeated.
 
 ## Development
 Fruits of Labour is developed using Unity and Visual Studio. Graphic assets are created in Adobe Photoshop. Sound assets are edited with Audacity.

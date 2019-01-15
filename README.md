@@ -1,5 +1,5 @@
 # Fruits of Labour
-(*currently in development: v0.2*)
+(*currently in development: v0.3*)
 
 *Terrance, the tomato seeks to restore the lost glory of the tomato fruit. Help Terrance blast through hordes of angry vegetables using shovels, shears, and even revolvers on his way to prove once and for all that a tomato is in fact a fruit.*
 

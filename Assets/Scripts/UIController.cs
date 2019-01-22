@@ -7,8 +7,11 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour {
 
     // Inventory variables
-    public GameObject inventory;
-    private Image sprite;
+    public GameObject currentItem, inventoryPanel;
+    private GameObject itemHolder;
+    private int selection = 0, invRows, invColumns;
+    private List<GameObject> holders = new List<GameObject>();
+    private Image sprite; 
 
     // Health bar variables
     public GameObject healthbar, energybar;
@@ -27,8 +30,14 @@ public class UIController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // Initialize sprite references
-        sprite = inventory.GetComponent<Image>();
+        sprite = currentItem.GetComponent<Image>();
         sprite.color = Color.clear;
+
+        // Initialize inventory
+        itemHolder = (GameObject)Resources.Load("Item Holder");
+        inventoryPanel.SetActive(false);
+        invColumns = Mathf.FloorToInt(inventoryPanel.GetComponent<RectTransform>().sizeDelta.x / (inventoryPanel.GetComponent<GridLayoutGroup>().cellSize.x + inventoryPanel.GetComponent<GridLayoutGroup>().spacing.x));
+        invRows = Mathf.FloorToInt(inventoryPanel.GetComponent<RectTransform>().sizeDelta.y / (inventoryPanel.GetComponent<GridLayoutGroup>().cellSize.y + inventoryPanel.GetComponent<GridLayoutGroup>().spacing.y));
 
         // Initialize player reference
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<MainCharController>();
@@ -56,13 +65,24 @@ public class UIController : MonoBehaviour {
         {
             if (!paused)
             {
-                Pause(true);
+                Pause(true, true);
             }
             else
             {
-                Pause(false);
+                Pause(false, false);
             }
+        }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if(!inventoryPanel.activeSelf)
+            {
+                OpenInventory();
+            }
+            else
+            {
+                CloseInventory();
+            }
         }
 
         // Updaye HP bar
@@ -96,6 +116,9 @@ public class UIController : MonoBehaviour {
             sprite.sprite = Resources.Load<Sprite>(player.CurrentWeapon.SpriteName);
             sprite.color = Color.white;
         }
+
+        // Update inventory
+        InventoryUpdate();
 	}
 
     //----------------
@@ -104,24 +127,119 @@ public class UIController : MonoBehaviour {
 
     void ResumeBtnPress()
     {
-        Pause(false);
+        Pause(false, false);
     }
 
     void RestartBtnPress()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
-        Pause(false);
+        Pause(false, false);
     }
 
     //---------------
     // Other methods
     //---------------
 
-    private void Pause(bool pause)
+    private void Pause(bool pause, bool menu)
     {
         Time.timeScale = pause ? 0 : 1;
         paused = pause;
-        pauseMenu.SetActive(pause);
+        pauseMenu.SetActive(menu);
+    }
+
+    private void OpenInventory()
+    {
+        Pause(true, false);
+
+        // Populate the panel with images of the inventory items
+        for (int i = 0; i < MainCharController.INVENTORY_SIZE; i++)
+        {
+            Item itm = (Item)player.Inventory[i, 0];
+
+            if (itm != null)
+            {
+                GameObject invItem = Instantiate(itemHolder);
+                invItem.transform.SetParent(inventoryPanel.transform);
+                invItem.GetComponent<Image>().enabled = false;
+                invItem.GetComponentsInChildren<Image>()[1].sprite = Resources.Load<Sprite>(itm.SpriteName);
+                invItem.GetComponentInChildren<Text>().text = ((int)player.Inventory[i, 1]).ToString();
+
+                holders.Add(invItem);
+
+                //selection = 0;
+            }
+        }
+
+        inventoryPanel.SetActive(true);
+    }
+
+    private void CloseInventory()
+    {
+        inventoryPanel.SetActive(false);
+
+        foreach (GameObject holder in holders)
+            Destroy(holder);
+
+        holders.Clear();
+
+        Pause(false, false);
+    }
+
+    private void EnableHolder(int index, bool on)
+    {
+        holders[index].GetComponent<Image>().enabled = on;
+    }
+
+    private void InventoryUpdate()
+    {
+        if(inventoryPanel.activeSelf && player.NumItems > 0)
+        {
+            // Highlight the selected item
+            EnableHolder(selection, true);
+
+            // Select through the inventory
+            if(Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if((selection + 1) % invColumns != 0 && (selection + 1) < player.NumItems)
+                {
+                    EnableHolder(selection, false);
+                    selection++;
+                }
+            }
+            else if(Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if ((selection + 1) % invColumns != 1)
+                {
+                    EnableHolder(selection, false);
+                    selection--;
+                }
+            }
+            else if(Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                if (selection - 8 >= 0)
+                {
+                    EnableHolder(selection, false);
+                    selection -= 8;
+                }
+            }
+            else if(Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                if (selection + 8 < player.NumItems)
+                {
+                    EnableHolder(selection, false);
+                    selection += 8;
+                }
+            }
+
+            // Choose the selected item with <Q>
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                player.CurrentWeapon = (Weapon)player.Inventory[selection, 0];
+                player.audioSource[1].PlayOneShot(player.pickupSFX, 1f);
+
+                CloseInventory();
+            }
+        }
     }
 }

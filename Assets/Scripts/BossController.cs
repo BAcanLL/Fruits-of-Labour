@@ -11,7 +11,7 @@ public class BossController : CharController {
                   INVULNERABLE_DELAY = 0.1f;
 
     // Gameplay variables
-    private float BASE_HEALTH = 20;
+    private float BASE_HEALTH = 100;
     private float BASE_STRENGTH = 15;
 
     // Projectile variables
@@ -20,10 +20,12 @@ public class BossController : CharController {
     private Timer fireballTimer = new Timer(FIRE_DELAY);
 
     // Behaviour variables
-    private const float MOVE_TIME = 2;
-    private float moveDir = 1;
+    private const float MOVE_TIME = 4;
+    private float moveDir = 1, rayKnockBack = 0;
     private Vector2 BOUNCE_BACK = Vector2.zero;
     private Timer moveTimer = new Timer(MOVE_TIME);
+    private AudioSource audioSource;
+    private AudioClip flameSFX;
 
     // Use this for initialization
     void Start () {
@@ -31,6 +33,10 @@ public class BossController : CharController {
         // Initialize animation info
         spawnInfo = new AnimationInfo("enemy_spawn", 38, 12);
         idleInfo = new AnimationInfo("enemy_idle", 16, 8);
+
+        // Initialize sound info
+        audioSource = GetComponent<AudioSource>();
+        flameSFX = (AudioClip)Resources.Load("Flame2_sfx");
 
         // Initialize projectile
         fireballPrefab = (GameObject)Resources.Load("Fireball");
@@ -68,6 +74,8 @@ public class BossController : CharController {
                     spitFire(angle);
                     angle += deltaAngle;
                 }
+
+                audioSource.PlayOneShot(flameSFX, 0.3f);
 
                 fireballTimer.Reset();
             }
@@ -166,6 +174,48 @@ public class BossController : CharController {
 
         // Add the controller
         BulletController controller = fireball.gameObject.AddComponent<BulletController>();
-        controller.SetProperties(10, direction, 0.05f, 2, false);
+        controller.SetProperties(10, direction, 0.05f, 5, false);
+    }
+
+    // Damage from raycast bullets
+    public bool RayDamage(float dmg)
+    {
+        bool damage = false;
+
+        if (!invulnerable)
+        {
+            // Generate damage text
+            GenerateFloatingText("-" + dmg.ToString(), Color.red);
+
+            // If still alive after damage
+            if (TakeDamage(dmg))
+            {
+                // Knock back proportional to damage
+                rigidBody.velocity = Vector2.zero;
+                rigidBody.AddForce(rayKnockBack * -DirToPlayer() * Mathf.Sqrt(dmg));
+
+                // Damaged behaviour
+                anim.Play("paused");
+                Invulnerable(true);
+                state = TAKING_DMG;
+
+                StartCoroutine(WaitForDmgEnd());
+            }
+
+            damage = true;
+        }
+
+        return damage;
+    }
+
+    // Return the direction to the player character
+    private Vector2 DirToPlayer()
+    {
+        float x = 1;
+
+        if (player.transform.position.x < transform.position.x)
+            x = -1;
+
+        return new Vector2(x, 0);
     }
 }

@@ -30,8 +30,9 @@ public class MainCharController : CharController {
     private Color defaultColor;
 
     // Sound variables
-    private AudioSource[] audioSource =  new AudioSource[2];
-    private AudioClip pickupSFX, pickUpBubbleSFX, shootingSFX, takeDamageSFX, errorSFX;
+    public AudioSource[] audioSource =  new AudioSource[2];
+    private AudioClip pickUpBubbleSFX, shootingSFX, takeDamageSFX, errorSFX;
+    public AudioClip pickupSFX;
 
     // Behaviour variables
     private Vector2 BOUNCE_BACK = new Vector2(125f, 200f);
@@ -43,8 +44,11 @@ public class MainCharController : CharController {
     public float DASH_COST = 50;
 
     // Gameplay variables
+    public const int INVENTORY_SIZE = 20;
     public Weapon DefaultWeapon { get; private set; }
-    public Weapon CurrentWeapon { get; private set; }
+    public Weapon CurrentWeapon { get; set; }
+    public object[,] Inventory { get; private set; }
+    public int NumItems { get; private set; }
     private List<Weapon> weapons = new List<Weapon>();
     private List<Collider2D> touchingItems = new List<Collider2D>(); // All currently contacting colliders
     public float HealthBubbles { get; private set; }
@@ -82,10 +86,18 @@ public class MainCharController : CharController {
             currentHealthbar.color = Color.clear;
         }
 
-        // Initialize  items
+        // Initialize items
         Item.prefab = (GameObject)Resources.Load("Item_prefab");
-        DefaultWeapon = Items.Seeds;
+        DefaultWeapon = Items.Seeds; // The weapon the player starts with
         CurrentWeapon = DefaultWeapon;
+
+        // Initialize inventory
+        Inventory = new object[INVENTORY_SIZE, 2];
+        for(int i = 0; i<INVENTORY_SIZE; i++)
+        {
+            Inventory[i, 0] = null;
+            Inventory[i, 1] = 0;
+        }
 
         // Initialize sounds
         shootingSFX = (AudioClip)Resources.Load(CurrentWeapon.SfxName);
@@ -498,12 +510,22 @@ public class MainCharController : CharController {
         RaycastHit2D hit = Physics2D.Raycast(pos, GetDirection(), 5, layMask);
 
         // If hit something
-        if (hit.collider != null && hit.collider.gameObject.CompareTag("Enemy"))
+        if (hit.collider != null)
         {
-            EnemyController enemy = hit.collider.gameObject.GetComponent<EnemyController>();
+            Debug.Log(hit.collider.gameObject.tag);
 
-            enemy.RayDamage(CurrentWeapon.Strength);
+            if(hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                EnemyController enemy = hit.collider.gameObject.GetComponent<EnemyController>();
 
+                enemy.RayDamage(CurrentWeapon.Strength);
+            }
+            else if(hit.collider.gameObject.CompareTag("Boss"))
+            {
+                BossController boss = hit.collider.gameObject.GetComponent<BossController>();
+
+                boss.RayDamage(CurrentWeapon.Strength);
+            }
         }
     }
 
@@ -544,6 +566,42 @@ public class MainCharController : CharController {
         return base.TakeDamage(damage);
     }
 
+    // Returns true if another item with the same name exists in the inventory
+    private int AlreadyOwned(Item item)
+    {
+        int index = -1;
+
+        for (int i = 0; i < NumItems; i++)
+            if ((Inventory[i,0] as Item).Name == item.Name)
+                index = i;
+
+        return index;
+    }
+
+    // Add the item to the inventory array
+    private bool Add2Inventory(Item item)
+    {
+        bool added = false;
+
+        if (NumItems < INVENTORY_SIZE)
+        {
+            int newItemIndex = AlreadyOwned(item);
+
+            if (newItemIndex == -1)
+            {
+                newItemIndex = NumItems;
+                Inventory[NumItems, 0] = item;
+                NumItems++;
+            }
+
+            Inventory[newItemIndex, 1] = ((int)Inventory[newItemIndex, 1]) + 1;
+
+            added = true;
+        }
+
+        return added;
+    }
+
     private void PickUpItem(Collider2D collision)
     {
         // Extract the item information
@@ -559,12 +617,17 @@ public class MainCharController : CharController {
         // Weapons
         if (item is Weapon)
         {
-            // Swap weapons
+            // OLD CODE - Swap weapons, no inventory
+
+            /*
             if(CurrentWeapon != DefaultWeapon)
                 DropItem(CurrentWeapon);
 
             CurrentWeapon = (Weapon)item;
             bulletTimer.Set(CurrentWeapon.AtkDelay);
+            */
+
+            Add2Inventory(item);
         }
         // Modifiers
         else if (item is Modifier)

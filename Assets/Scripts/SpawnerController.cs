@@ -10,6 +10,7 @@ public class SpawnerController : MonoBehaviour {
     public float delay;
     public int maxInstances;
     public bool isBoss;
+    private bool bossSpawning = false;
     private float strength, baseHealth, walkSpeed;
     private List<GameObject> list = new List<GameObject>();
     private Vector3 pos = new Vector3();
@@ -107,10 +108,11 @@ public class SpawnerController : MonoBehaviour {
     {
         if (isBoss)
         {
-            if (Points >= MAX_POINTS && Input.GetKey(KeyCode.W))
+            if (Points >= MAX_POINTS && Input.GetKey(KeyCode.W) && !bossSpawning)
             {
-                Instantiate(egg, pos + new Vector3(0, 2, 0), transform.rotation);
-                Destroy(gameObject);
+                bossSpawning = true;
+                Destroy(text);
+                StartCoroutine(SpawnBoss());
             }
         }
         else if (collision.gameObject == player)
@@ -121,5 +123,13 @@ public class SpawnerController : MonoBehaviour {
                 Destroy(gameObject);
             }
         }
+    }
+
+    private IEnumerator SpawnBoss()
+    {
+        yield return new WaitForSeconds(2);
+
+        Instantiate(egg, pos + new Vector3(0, 1, 0), transform.rotation);
+        Destroy(gameObject);
     }
 }

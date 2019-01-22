@@ -3,11 +3,14 @@
 
 *Terrance, the tomato seeks to restore the lost glory of the tomato fruit. Help Terrance blast through hordes of angry vegetables using shovels, shears, and even revolvers on his way to prove once and for all that a tomato is in fact a fruit.*
 
+*To play the game, download the ZIP latest version from the* Game *folder, and extract the files to a new location. Run the* "Fruits of Labour" *application file and select your desired settings.*
+
 ## Gameplay
 Fruits of Labour is a single-player, vegetable based shooter game. Explore the map and kill enemies while powering yourself up with cool new items. 
 
 ![Gameplay](Screenshots/Gameplay3.PNG)
 ![Gameplay](Screenshots/Gameplay4.PNG)
+![Gameplay](Screenshots/Gameplay5.PNG)
 
 ### Controls
 * Press the **Left** and **Right** arrow keys to move.

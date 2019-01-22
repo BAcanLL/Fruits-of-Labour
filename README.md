@@ -19,7 +19,7 @@ Fruits of Labour is a single-player, vegetable based shooter game. Explore the m
 * Press **Q** to shoot.
 * Press **W** to interact with terrain.
 * Press **E** next to items to pick them up.
-+ Press **R** to open the inventory. *(Use the **Arrow Keys** to navigate the inventory, and **Q** to equip and item)*
+* Press **R** to open the inventory *(Use the **Arrow Keys** to navigate the inventory and **Q** to equip an item)*.
 
 ### Items
 Enemies have a change of dropping items when killed. The more powerful the item, the rarer it is. Item despawn after a couple seconds, so pick them up quick!

@@ -86,6 +86,9 @@ Functionality:
 + Boss fight
 + Enemy projectiles
 + Title screen
++ Multi-item inventory system
++ Iventory item stacking
+- Dropping previous item on pick-up
 
 Content:
 + Terrain: Signs
@@ -102,10 +105,9 @@ Functionality:
 + Pause menu options
 + Rarity dependent item drop rate
 + Item type: Bubble
-+ Inventory system
-+ Stacking items
++ Dynamic UI scaling
+- Static UI scaling
 - Invulnerability animation while spawning
-> UI scaling changed from Static -> Dynamic
 
 Content:
 + Bubble: Health

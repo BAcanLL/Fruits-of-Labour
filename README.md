@@ -87,7 +87,7 @@ Functionality:
 + Enemy projectiles
 + Title screen
 + Multi-item inventory system
-+ Iventory item stacking
++ Inventory item stacking
 - Dropping previous item on pick-up
 
 Content:

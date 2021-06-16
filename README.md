@@ -1,6 +1,4 @@
 # Fruits of Labour
-(*currently in development: v0.3*)
-
 *To play the game, download the* "FruitsOfLabour_vXX.zip"*, and extract the files to a new location. Run the* "Fruits of Labour" *application file, select your desired settings, and click* "Play!".
 
 ## Gameplay
